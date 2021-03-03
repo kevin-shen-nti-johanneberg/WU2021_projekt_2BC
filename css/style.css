@@ -2,6 +2,45 @@
     margin: 0;
 }
 
+/* Uni elements */
+
+.uni-footer{
+    grid-area: fo;
+    background: rgb(58, 58, 58);
+}
+
+.uni-button{
+    display:none;
+    z-index: 15;
+}
+
+.uni-header{
+    grid-area: h1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky; top: 0;
+    background: white;
+    z-index: 15;
+}
+
+.uni-nav{
+    grid-area: na;
+    display: flex;
+    padding-left: 270px;
+    padding-right: 270px;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky; top: 0;
+    background: white;
+}
+
+.uni-menu{
+    display: none;
+}
+
+/*main css*/
+
 .lobb-gridwrapper{
     display: grid;
     width: 100vw;
@@ -18,39 +57,6 @@
     ;   
 }
 
-.uni-header{
-    grid-area: h1;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: sticky; top: 0;
-    background: white;
-}
-
-.uni-nav{
-    grid-area: na;
-    display: flex;
-    padding-left: 270px;
-    padding-right: 270px;
-    justify-content: space-around;
-    align-items: center;
-    position: sticky; top: 0;
-    background: white;
-}
-
-.lobb-main{
-    grid-area: ma;  
-    background: rgba(49, 224, 255, 0.555);
-}
-
-.lobb-header2{
-    grid-area: h2;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .lobb-innerGridwrapper{
     grid-area: se;
     display: grid;
@@ -65,6 +71,19 @@
         "p1 p2 p3"
         "t1 t2 t3"
     ;
+}
+
+.lobb-main{
+    grid-area: ma;  
+    background: rgba(49, 224, 255, 0.555);
+}
+
+.lobb-header2{
+    grid-area: h2;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .lobb-pic1{
@@ -97,26 +116,8 @@
     background: beige;
 }
 
-.uni-footer{
-    grid-area: fo;
-    background: rgb(58, 58, 58);
-}
-
-.uni-menu{
-    display: none;
-}
-
-.uni-button{
-    display:none;
-}
-
-/* Här börjar js-funktionerna */
-
-
-
 
 /* Här börjar mobil koden  */
-
 
 
 @media screen and (max-width:599px) {
@@ -155,30 +156,13 @@
         ;
     }
 
-    .fade-layer{
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgb(44, 44, 44);
-        display: none;
-        z-index: 5;
-    }
-
-    .fade-layer.visible{
-        display: block;
-    }
-
-    .show{
-        left: 0;
-    } 
-
     .uni-menu{
+        padding-top: 18%;
         height: 100vh;
         width: 80vw;
         background: pink;
         position: fixed;
+        display: block;
         top: 0;
         left: -90vw;
         transition: left 0.5s;
@@ -206,14 +190,9 @@
 
 }
 
-/* för tabletter kanske */
-/* @media screen and (min-width:600px) and (max-width:1023) */
-
-
-
-
 
 /* Css för galleriet */
+
 
 .gall-gridwrapper{
     display: grid;
@@ -230,7 +209,6 @@
         "fo fo fo fo fo"
     ;   
 }
-
 
 .gall-innerGridwrapper{
     display: grid;
@@ -290,7 +268,7 @@
     background: greenyellow;
 }
 
-
+/* Mobile för gall */
 
 @media screen and (max-width:599px){
 
@@ -331,10 +309,12 @@
     }
 
     .uni-menu{
+
         height: 100vh;
         width: 80vw;
         background: pink;
         position: fixed;
+        display: block;
         top: 0;
         left: -90vw;
         transition: left 0.5s;
@@ -371,3 +351,37 @@
     }
     
 }
+
+/**/
+/**/
+/**/
+
+
+
+
+
+
+
+/* Här börjar js-funktionerna */
+
+.fade-layer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(44, 44, 44);   
+    display: none;
+    z-index: 5;
+}
+
+.fade-layer.visible{
+    display: block;
+}
+
+.show{
+    left: 0;
+    display: block;
+}
+
+
