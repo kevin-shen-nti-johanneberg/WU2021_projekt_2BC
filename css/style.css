@@ -11,7 +11,20 @@
 
 .uni-button{
     display:none;
+}
+
+.uni-top{
+    grid-area: UT;
+    position: sticky; top: 0;
+    background: white;
     z-index: 15;
+    box-shadow: 10px 0px 10px;
+
+    display: grid;
+    grid-template-columns: 1fr 25% 1fr 50% 1fr;
+    grid-template-areas:
+        ". h1 . na ."
+    ;
 }
 
 .uni-header{
@@ -19,23 +32,26 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    position: sticky; top: 0;
-    background: white;
-    z-index: 15;
 }
 
 .uni-nav{
     grid-area: na;
     display: flex;
-    padding-left: 270px;
-    padding-right: 270px;
     justify-content: space-around;
     align-items: center;
-    position: sticky; top: 0;
     background: white;
 }
 
 .uni-menu{
+    padding-top: 120px;
+    height: 100vh;
+    width: 65vw;
+    background: rgb(255, 138, 255);
+    position: fixed;
+    top: 0;
+    left: -90vw;
+    transition: left 0.5s;
+    z-index: 10;
     display: none;
 }
 
@@ -46,10 +62,10 @@
     width: 100vw;
     height: 150vh;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 6% 41% 8% 42% 3%;
+    grid-template-rows: 7% 41% 8% 42% 3%;
     
     grid-template-areas: 
-        "h1 na na"  
+        "UT UT UT"  
         "ma ma ma"
         "h2 h2 h2"
         "se se se"
@@ -60,12 +76,12 @@
 .lobb-innerGridwrapper{
     grid-area: se;
     display: grid;
-    grid-gap: 45px;
-    padding-left: 15px;
-    padding-right: 15px;
+    grid-gap: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
 
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 3fr 1fr;
 
     grid-template-areas:
         "p1 p2 p3"
@@ -104,20 +120,29 @@
 .lobb-text1{
     grid-area: t1;
     background: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .lobb-text2{
     grid-area: t2;
     background: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .lobb-text3{
     grid-area: t3;
     background: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
-/* Här börjar mobil koden  */
+/* Här börjar mobil koden for lobby */
 
 
 @media screen and (max-width:599px) {
@@ -125,16 +150,16 @@
     .lobb-gridwrapper{
         display: grid;
         width: 100vw;
-        height: 250vh;
-        grid-template-columns: 75% 25%;
-        grid-template-rows: 4% 22% 4% 67% 3%;
+        height: 300vh;
+        grid-template-columns: 100%;
+        grid-template-rows: 4% 22% 1fr 67% 2%;
         
         grid-template-areas: 
-            "h1 na"  
-            "ma ma"
-            "h2 h2"
-            "se se"
-            "fo fo"
+            "UT"  
+            "ma"
+            "h2"
+            "se"
+            "fo"
         ;   
     }
 
@@ -156,23 +181,17 @@
         ;
     }
 
+    .uni-top{
+        grid-template-columns: 0fr 2fr 0fr 1fr 0fr;
+    }
+
     .uni-menu{
-        padding-top: 18%;
-        height: 100vh;
-        width: 80vw;
-        background: pink;
-        position: fixed;
         display: block;
-        top: 0;
-        left: -90vw;
-        transition: left 0.5s;
-        z-index: 10;
     }
 
     .uni-button{
         display: block;
         grid-area: na;
-        position: sticky; top: 0;
         background: white;
         cursor: pointer;
         display: flex;
@@ -193,19 +212,18 @@
 
 /* Css för galleriet */
 
-
 .gall-gridwrapper{
     display: grid;
     width: 100vw;
     height: 150vh;
     grid-template-columns: 1fr 27% 27% 27% 1fr;
-    grid-template-rows: 7% 16% 37% 37% 3%;
+    grid-template-rows: 7% 1fr 37% 37% 3%;
     
     grid-template-areas: 
-        "h1 h1 na na na"
+        "UT UT UT UT UT"
         "ma ma ma ma ma"
-        "asl se se se asr"
-        "asl se se se asr"
+        ". se se se ."
+        ". se se se ."
         "fo fo fo fo fo"
     ;   
 }
@@ -228,14 +246,6 @@
 .gall-main{
     grid-area: ma;
     background: rgba(49, 224, 255, 0.555);
-}
-
-.gall-asideleft{
-    grid-area: asl;
-}
-
-.gall-asideright{
-    grid-area: asr;
 }
 
 .gall-pic1{
@@ -275,15 +285,15 @@
     .gall-gridwrapper{
         display: grid;
         width: 100vw;
-        height: 250vh;
-        grid-template-columns: 75% 25%;
-        grid-template-rows: 3% 9% 85% 3%;
-        
+        height: 300vh;
+        grid-template-columns: 100%;
+        grid-template-rows: 4% 1fr 86% 2%;
+    
         grid-template-areas: 
-            "h1 na"
-            "ma ma"
-            "se se"
-            "fo fo"
+            "UT"
+            "ma"
+            "se"
+            "fo"
         ;   
     }
 
@@ -309,16 +319,11 @@
     }
 
     .uni-menu{
-
-        height: 100vh;
-        width: 80vw;
-        background: pink;
-        position: fixed;
         display: block;
-        top: 0;
-        left: -90vw;
-        transition: left 0.5s;
-        z-index: 10;
+    }
+
+    .uni-top{
+        grid-template-columns: 0fr 2fr 0fr 1fr 0fr;
     }
 
     .uni-button{
@@ -332,16 +337,6 @@
         align-items: center;
     }
 
-    .gall-asideleft{
-        grid-area: asl;
-        display: none;
-    }
-    
-    .gall-asideright{
-        grid-area: asr;
-        display: none;
-    }
-
     .navbutton i.material-icons{
         font-size: 2.5rem;
     }
@@ -352,15 +347,374 @@
     
 }
 
-/**/
-/**/
-/**/
+/*om-oss sida css*/
+
+.om-gridwrapper{
+    display: grid;
+    width: 100vw;
+    height: 150vh;
+    grid-template-columns: 14% 1fr 1fr 14%;
+    grid-template-rows: 7% 1fr 1fr 3%;
+    
+    grid-template-areas: 
+        "UT UT UT UT"
+        ". se1 p1 ."
+        ". p2 se2 ."
+        "fo fo fo fo"
+    ;   
+}
+
+.om-section1{
+    grid-area: se1;
+    grid-gap: 10px;
+    margin: 15px;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+.om-section2{
+    grid-area: se2;
+    grid-gap: 10px;
+    margin: 15px;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+.om-text1{
+    background: grey;
+}
+
+.om-text2{
+    background: grey;
+}
+
+.om-header1{
+    background: turquoise;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.om-header2{
+    background: turquoise;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.om-pic1{
+    grid-area: p1;
+    background: yellowgreen;
+    margin: 15px;
+}
+
+.om-pic2{
+    grid-area: p2;
+    background: yellowgreen;
+    margin: 15px;
+}
 
 
+/*om-oss mobil*/
+
+@media screen and (max-width:599px){
+
+    .om-gridwrapper{
+        display: grid;
+        width: 100vw;
+        height: 300vh;
+        grid-template-columns: 100%;
+        grid-template-rows: 4% 1fr 1fr 1fr 1fr 2%;
+        
+        grid-template-areas: 
+            "UT"
+            "se1"
+            "p1"
+            "se2"
+            "p2"
+            "fo"
+        ;   
+    }
+
+    .uni-menu{
+        display: block;
+    }
+
+    .uni-button{
+        display: block;
+        grid-area: na;
+        position: sticky; top: 0;
+        background: white;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .uni-top{
+        grid-template-columns: 0fr 2fr 0fr 1fr 0fr;
+    }
+
+    .navbutton i.material-icons{
+        font-size: 2.5rem;
+    }
+
+    .uni-nav{
+        display: none;
+    }
+}
+
+/*aktiviteter css*/
+
+.akt-gridwrapper{
+    display: grid;
+    width: 100vw;
+    height: 150vh;
+    grid-template-columns: 22% 1fr 1fr 22%;
+    grid-template-rows: 7% 1fr 1fr 1fr 3%;
+    
+    grid-template-areas: 
+        "UT UT UT UT"
+        ". p1 s1 ."
+        ". s2 p2 ."
+        ". p3 s3 ."
+        "fo fo fo fo"
+    ;   
+}
+
+.akt-section1{
+    grid-area: s1;
+    grid-gap: 10px;
+    margin: 15px;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+.akt-section2{
+    grid-area: s2;
+    grid-gap: 10px;
+    margin: 15px;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+.akt-section3{
+    grid-area: s3;
+    grid-gap: 10px;
+    margin: 15px;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+.akt-header1{
+    background: turquoise;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.akt-header2{
+    background: turquoise;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.akt-header3{
+    background: turquoise;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.akt-text1{
+    background: grey;
+}
+ 
+.akt-text2{
+    background: grey;
+}
+
+.akt-text3{
+    background: grey;
+}
+
+.akt-pic1{
+    grid-area: p1;
+    background: yellowgreen;
+    margin: 15px;
+}
+
+.akt-pic2{
+    grid-area: p2;
+    background: yellowgreen;
+    margin: 15px;
+}
+
+.akt-pic3{
+    grid-area: p3;
+    background: yellowgreen;
+    margin: 15px;
+}
+
+/*aktivitet mobil*/
+
+@media screen and (max-width:599px){
+
+    .akt-gridwrapper{
+        display: grid;
+        width: 100vw;
+        height: 300vh;
+        grid-template-columns: 100%;
+        grid-template-rows: 4% 3fr 2fr 3fr 2fr 3fr 2fr 2%;
+        
+        grid-template-areas: 
+            "UT"
+            "s1"
+            "p1"
+            "s2"
+            "p2"
+            "s3"
+            "p3"
+            "fo"
+        ;   
+    }
+
+    .uni-menu{
+        display: block;
+    }
+
+    .uni-button{
+        display: block;
+        grid-area: na;
+        position: sticky; top: 0;
+        background: white;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .uni-top{
+        grid-template-columns: 0fr 2fr 0fr 1fr 0fr;
+    }
+
+    .navbutton i.material-icons{
+        font-size: 2.5rem;
+    }
+
+    .uni-nav{
+        display: none;
+    }
+}
+
+/*medlemskap css*/
+
+.med-gridwrapper{
+    display: grid;
+    width: 100vw;
+    height: 150vh;
+    grid-template-columns: 8% 1fr 1fr 8%;
+    grid-template-rows: 7% 1fr 1fr 1fr 6%;
+    
+    grid-template-areas: 
+        "UT UT UT UT"
+        "mn mn mn mn"
+        ". sec1 sec2 ."
+        ". sec1 sec2 ."
+        "fo fo fo fo"
+    ;   
+}
+
+.med-main{
+    grid-area: mn;
+    background: cyan;
+}
+
+.med-section1{
+    grid-area: sec1;
+    margin: 15px;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+}
+
+.med-section2{
+    grid-area: sec2;
+    margin: 15px;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+}
+
+.med-header1{
+    background: turquoise;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.med-header2{
+    background: turquoise;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.med-text1{
+    background: grey;
+}
+
+.med-text2{
+    background: grey;
+}
 
 
+/*medlemskap mobil*/
 
+@media screen and (max-width:599px){
 
+    .med-gridwrapper{
+        display: grid;
+        width: 100vw;
+        height: 150vh;
+        grid-template-columns: 100%;
+        grid-template-rows: 7.95% 1fr 1fr 1fr 6%;
+        
+        grid-template-areas: 
+            "UT"
+            "mn"
+            "sec1"
+            "sec2"
+            "fo"
+        ;   
+    }
+
+    .uni-menu{
+        display: block;
+    }
+
+    .uni-button{
+        display: block;
+        grid-area: na;
+        position: sticky; top: 0;
+        background: white;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .uni-top{
+        grid-template-columns: 0fr 2fr 0fr 1fr 0fr;
+    }
+
+    .navbutton i.material-icons{
+        font-size: 2.5rem;
+    }
+
+    .uni-nav{
+        display: none;
+    }
+}
 
 /* Här börjar js-funktionerna */
 
@@ -370,9 +724,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgb(44, 44, 44);   
+    background-color: rgb(0, 0, 0);   
     display: none;
     z-index: 5;
+    opacity: 0.5;
 }
 
 .fade-layer.visible{
