@@ -54,7 +54,6 @@ a:link, a:visited {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: white;
     font-family: 'Cabin', sans-serif;
     font-size: 20px;
 }
