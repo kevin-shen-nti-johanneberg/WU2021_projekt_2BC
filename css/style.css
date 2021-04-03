@@ -119,6 +119,11 @@ h3{
     height: 100%;
 }
 
+.lobb-poster2{
+    height: 100%;
+    display: none;
+}
+
 .lobb-header2{
     grid-area: h2;
     background: white;
@@ -244,6 +249,16 @@ h3{
             "p3"
             "t3"
         ;
+    }
+
+    .lobb-poster{
+        height: 100%;
+        display: none;
+    }
+    
+    .lobb-poster2{
+        height: 100%;
+        display: block;
     }
 
     .uni-top{
